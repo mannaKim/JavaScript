@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_ImageControl03.html</title>
+    <script type="text/javascript">
+        var imgNum=1;
+        function changeImg(){
+            imgNum++;
+            if(imgNum>10) imgNum=1;
+            document.getElementById("target").src='images/'+imgNum+'.jpg';
+        }
+    </script>
+</head>
+<body>
+    <img src="images/1.jpg" id="target" onclick="changeImg();">
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15_ImageControl05.html</title>
+    <script type="text/javascript">
+        var imgNum=1;
+        var timer; //함수 안에서 선언하면 지역변수가 됨 그래서 밖에서 선언
+
+        function start(){
+            timer = window.setInterval(function(){
+                imgNum++;
+                if(imgNum>10) imgNum=1;
+                document.getElementById("target").src='images/'+imgNum+'.jpg';
+            } ,1000);
+        }
+
+        function stop(){
+            window.clearInterval(timer);
+        }
+    </script>
+</head>
+<body onLoad="start();">
+    <img src="images/1.jpg" id="target" onMouseOver="stop();" onMouseOut="start();">
+
+</body>
+</html>

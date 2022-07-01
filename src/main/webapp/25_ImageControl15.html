@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #view{position:relative; width:600px; height:400px; margin:0 auto; border:1px dashed black; overflow:hidden;}
+        #imgs{position:absolute; width:4800px; height:400px; left:0; top:0; border:1px dashed red; transition:0.5s;}
+        img{width:600px; height:400px;}
+        
+        #remote{position:relative; width:200px; height:50px; border:1px solid white; margin:0 auto; top:350px; text-align:center;}
+        #remote ul{list-style:none; padding:0; margin:0; display:inline-block;}
+        #remote ul li{float:left; width:25px; height:25px; border-radius:50%; background:white; margin:13px 10px; line-height:25px; text-align:center; cursor:pointer;}
+    </style>
+    <script type="text/javascript">
+        //play:이미지를 1장씩 1초 또는 2초 마다 넘기며 보여줌. 이미지의 끝에 다다르면 맨 처음 이미지로 이동
+        //stop:이미지 자동 rolling을 멈춤
+        //이미지 롤링은 페이지 시작시 동작하도록 작성
+        var timer;
+        var imgNum=0;
+        function play(){
+            timer = window.setInterval(function(){
+                imgNum++;
+                if(imgNum>7) imgNum=0;
+                var dist = -600*imgNum;
+                document.getElementById("imgs").style.left=dist+"px";
+            },1500);
+        }
+        function stop(){
+            window.clearInterval(timer);
+        }
+    </script>
+    <title>25_ImageControl15.html</title>
+</head>
+<body onLoad="play();">
+    <div id="view">
+        <div id="imgs">
+            <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+        </div>
+        <div id="remote">
+            <ul>
+                <li onClick="play()">▶</li>
+                <li onClick="stop()">■</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

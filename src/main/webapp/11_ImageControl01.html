@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11_ImageControl01.html</title>
+    <script type="text/javascript">
+        function changeImage01(){
+            //자바스크립트에서 바디안의 id 셀렉터값을 지목하는 방법
+            //document.getElementById("아이디")
+            document.getElementById("img1").src="images/5.jpg";
+        }
+        function changeImage02(){
+            document.getElementById("img1").src="images/1.jpg";
+        }
+        function changeImage03(){
+            document.getElementById("img1").src="images/3.jpg";
+        }
+        function changeImage04(){
+            document.getElementById("img2").src="images/4.jpg";
+        }
+        function changeImage05(){
+            document.getElementById("img2").src="images/6.jpg";
+        }
+        function changeImage06(){
+            document.getElementById("img2").src="images/2.jpg";
+        }
+    </script>
+</head>
+<body>
+    <img src="images/1.jpg" id="img1" 
+    onClick="changeImage03();" onMouseOver="changeImage01();" onMouseOut="changeImage02();"/>
+    <img src="images/2.jpg" id="img2" 
+    onClick="changeImage04();" onMouseOver="changeImage05();" onMouseOut="changeImage06();"/>
+    <!--
+        onMouseOver="" : 해당 태그에 마우스포인터가 올라가면 일어나는 이벤트
+        onMouseOut="" : 해당 태그에서 마우스 포인터가 밖으로 벗어나면 일어나는 이벤트
+    -->
+</body>
+</html>

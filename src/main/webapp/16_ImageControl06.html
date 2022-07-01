@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16_ImageControl06.html</title>
+    <style type="text/css">
+        #a1{position:absolute; width:170px; height:255px; border:2px solid black; top:100px; left:100px;}
+    </style>
+    <script type="text/javascript">
+        //타이머가 두 개 필요
+        //한개의 타이머는 시계방향으로 0.5초마다 20도씩 회전하는 동작
+        //또다른 하나는 반시계방향으로 0.5초마다 20도씩 회전하는 동작
+        //onMouseOver와 onMouseOut 이벤트에 연결하여 코딩
+        var timer1;
+        var timer2;
+        var aa=0;
+
+        function clockwise(){
+            window.clearInterval(timer2);
+            timer1 = window.setInterval(function(){
+                aa+=20;
+                document.getElementById("a1").style.webkitTransform="rotate("+aa+"deg)";
+            },500);
+        }
+
+        function counterclockwise(){
+            window.clearInterval(timer1);
+            timer2 = window.setInterval(function(){
+                aa-=20;
+                document.getElementById("a1").style.webkitTransform="rotate("+aa+"deg)";
+            },500);
+        }
+    </script>
+</head>
+<body onLoad="clockwise();">
+    <div id="a1" onMouseOver="counterclockwise();" onMouseOut="clockwise();">
+        <img src="images/1.jpg">
+    </div>
+</body>
+</html>

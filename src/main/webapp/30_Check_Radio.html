@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>30_Check_Radio.html</title>
+    <style type="text/css">
+        img{vertical-align:middle;}
+    </style>
+    <script type="text/javascript">
+        var selectIndex=0;
+        var selectIndexes=[0,0,0];
+
+        function selectRadio(x){
+            for (var i=1; i<=2; i++){
+                document.getElementById("r"+i).src="images/radio2.jpg";
+            }
+            document.getElementById("r"+x).src="images/radio1.jpg";
+            document.getElementById("val").value=x; //서버에 전달될 값 표시
+        }
+        function selectCheck(n){
+            if(selectIndexes[n-1]==0){
+                document.getElementById("c"+n).src="images/check1.jpg";
+                selectIndexes[n-1]=1;
+            }else {
+                document.getElementById("c"+n).src="images/check2.jpg";
+                selectIndexes[n-1]=0;
+            }
+            var str="";
+            for(var i=0; i<3; i++){
+                if(selectIndexes[i]==1) str+=i+' ';
+            }
+            document.getElementById("val2").value=str;
+        }
+
+    </script>
+</head>
+<body>
+    <table width="500" bgcolor="black" cellspacing="1">
+        <tr bgcolor="white" height="70">
+            <th width="150">성별</th>
+            <td width="350">&nbsp;&nbsp;
+                남성&nbsp;<img src="images/radio2.jpg" id="r1" onClick="selectRadio(1);">&nbsp;&nbsp;&nbsp;
+                여성&nbsp;<img src="images/radio2.jpg" id="r2" onClick="selectRadio(2);">
+                <input type="text" id="val"> <!--서버에 전달될 값 표시-->
+            </td>
+        </tr>
+        <tr bgcolor="white" height="70">
+            <th width="150">취미</th>
+            <td width="350">&nbsp;&nbsp;
+                스포츠&nbsp;<img src="images/check2.jpg" id="c1" onClick="selectCheck(1);">&nbsp;&nbsp;&nbsp;
+                영화&nbsp;<img src="images/check2.jpg" id="c2" onClick="selectCheck(2);">&nbsp;&nbsp;&nbsp;
+                독서&nbsp;<img src="images/check2.jpg" id="c3" onClick="selectCheck(3);">&nbsp;&nbsp;&nbsp;
+                <input type="text" id="val2"> <!--서버에 전달될 값 표시-->
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

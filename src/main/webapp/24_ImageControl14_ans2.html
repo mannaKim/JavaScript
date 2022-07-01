@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #view{position:relative; width:600px; height:400px; margin:0 auto; border:1px dashed black; overflow:hidden;}
+        #imgs{position:absolute; width:4800px; height:400px; left:0; top:0; border:1px dashed red; transition:0.5s;}
+        img{width:600px; height:400px;}
+
+        #lbutton{position:relative; width:50px; height:50px; float:left; top:175px; left:0; background-image:url(images/ico_movie_171115.png); border-radius:50%; overflow:hidden; background-position:-60px -461px;}
+        #rbutton{position:relative; width:50px; height:50px; float:left; top:175px; left:500px; background-image:url(images/ico_movie_171115.png); border-radius:50%; overflow:hidden; background-position:0px -461px;}
+    </style>
+    <script type="text/javascript">
+        var imgNum=0;
+        function move(x){
+            if(x==-1 && imgNum==0) return;
+            else if(x==1 && imgNum==7) return;
+            else if(x==-1) imgNum--;
+            else if(x==1) imgNum++;
+            var dist = -600*imgNum;
+            document.getElementById("imgs").style.left=dist+"px";
+        }
+    </script>
+    <title>24_ImageControl14_ans2.html</title>
+</head>
+<body>
+    <div id="view">
+        <div id="imgs">
+            <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+        </div>
+        <div id="lbutton" onClick="move(-1);"></div>
+        <div id="rbutton" onClick="move(+1);"></div>
+    </div>
+</body>
+</html>

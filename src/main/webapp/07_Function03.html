@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07_Function03.html</title>
+    <script type="text/javascript">
+        //함수의 재정의 : 함수 호출 전 마지막에 저장된 함수가 실행된다.
+        // 1. 익명함수의 재정의
+        var func = function(){document.write("<h3>익명함수1</h3>");}
+        func();
+        var func = function(){document.write("<h3>익명함수2</h3>");}
+        func();
+        //변수에 익명함수가 저장되는 시점에 변수의 이름으로 함수가 정의된다.
+
+        // 2. 선언적 함수의 재정의
+        function move(){document.write("<h3>move함수1</h3>");}
+        move();
+        function move(){document.write("<h3>move함수2</h3>");}
+        move();
+        function move(){document.write("<h3>move함수3</h3>");}
+        move();
+        //최초실행시 내부 실행명령을 읽기 전에 선언적 함수들을 먼저 읽는다. 
+        //그 과정에서 같은 이름의 함수가 있다면 나중에 정의된 함수가 그 이름의 함수로 결정된다.
+        //따라서 위 코드의 세번의 move호출은 모두 move함수3으로 출력된다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

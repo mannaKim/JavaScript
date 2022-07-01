@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>29_SelectTag.html</title>
+    <style type="text/css">
+        #title{position:relative; width:200px; height:30px; border:1px solid gray; line-height:30px; font-size:120%; font-weight:bold;}
+        #num{position:absolute; top:0; left:0; width:120px; height:30px; border:1px dotted red;}
+        #arrow{position:absolute; width:25px; height:30px; top:0; right:0; background-image:url(images/ico_movie_171115.png); background-position:-275px -320px; overflow:hidden; border:1px dotted blue;}
+        
+        #dropMenu{position:absolute; top:30px; left:0; background:white; width:300px; height:250px; border:1px solid #EEEEEE; box-shadow:2px 2px 5px gray; overflow-y:scroll; overflow-x:hidden; visibility:hidden;}
+        #dropMenu div{font-weight:bold; height:45px; width:100%; line-height:45px;}
+        #dropMenu div:hover{background:#888888; color:white;}
+    </style>
+    <script type="text/javascript">
+        var menuState=false;
+        function clickTitle(){
+            if(menuState==false){
+                menuState=true;
+                document.getElementById("dropMenu").style.visibility="visible";
+            }else{
+                menuState=false;
+                document.getElementById("dropMenu").style.visibility="hidden";
+            }
+        }
+        function selectMenu(n){
+            document.getElementById("num").innerHTML="&nbsp;+"+n;
+            //document.getElementById("dropMenu").style.visibility="hidden";
+            //menuState=false;
+            //위 명령을 쓰지 않아도 div id="title" 안에 포함됐기 때문에 clickTitle()함수가 실행돼서 dropMenu가 알아서 닫힘
+        }
+    </script>
+</head>
+<body>
+    <select>
+        <option>대한민국 +82</option>
+        <option>그리스 +30</option>
+        <option>뉴질랜드 +64</option>
+        <option>프랑스 +33</option>
+    </select>
+    <hr/>
+    <div id="title" onClick="clickTitle();">
+        <div id="num">&nbsp;+82</div>
+        <div id="arrow"></div>
+        <div id="dropMenu">
+            <div onClick="selectMenu(1)">+1 &nbsp;&nbsp;&nbsp; Canada</div>
+            <div onClick="selectMenu(1)">+1 &nbsp;&nbsp;&nbsp; United States</div>
+            <div onClick="selectMenu(63)">+63 &nbsp;&nbsp;&nbsp; Philippines</div>
+            <div onClick="selectMenu(62)">+62 &nbsp;&nbsp;&nbsp; Indonesia</div>
+            <div onClick="selectMenu(84)">+84 &nbsp;&nbsp;&nbsp; Vietnam</div>
+            <div onClick="selectMenu(55)">+55 &nbsp;&nbsp;&nbsp; Brazil</div>
+            <div onClick="selectMenu(86)">+86 &nbsp;&nbsp;&nbsp; China</div>
+            <div onClick="selectMenu(85)">+85 &nbsp;&nbsp;&nbsp; HongKong</div>
+            <div onClick="selectMenu(82)">+82 &nbsp;&nbsp;&nbsp; Korea</div>
+        </div>
+    </div>
+    <hr/>
+</body>
+</html>

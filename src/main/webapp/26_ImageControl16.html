@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #view{position:relative; width:600px; height:400px; margin:0 auto; border:1px dashed black; overflow:hidden;}
+        #imgs{position:absolute; width:4800px; height:400px; left:0; top:0; border:1px dashed red; transition:0.5s;}
+        img{width:600px; height:400px;}
+        
+        #remote{position:relative; width:200px; height:50px; border:1px solid white; margin:0 auto; top:350px;}
+        #remote div{position:relative; width:25px; height:25px; background:white; border-radius:50%; margin:13px auto; line-height:25px; text-align:center; cursor:pointer;}
+    </style>
+    <script type="text/javascript">
+        var imgNum=0;
+        var timer;
+        var state=false; //현재 플레이 상태인지 멈춤 상태인지 저장할 변수
+        function play_stop(){
+            if(state==true){
+                //현재 플레이 중(버튼에 '■'가 표시되어 있는 중 버튼 클릭) 
+                //-> 동작은 멈추고 버튼 표시는 '▶'로 전환
+                state=false;
+                window.clearInterval(timer);
+                document.getElementById("btn").innerHTML="▶";
+            }else{
+                //현재 멈춰있는 중(버튼에 '▶'가 표시되어 있는 중 버튼 클릭) 
+                //-> 동작이 시작되고 버튼 표시는 '■'로 전환
+                state=true;
+                document.getElementById("btn").innerHTML="■";
+                timer = window.setInterval(function(){
+                    imgNum++;
+                    if(imgNum>7) imgNum=0;
+                    var dist = -600*imgNum;
+                    document.getElementById("imgs").style.left=dist+"px";
+                },1000);
+            }
+        }
+    </script>
+    <title>26_ImageControl16.html</title>
+</head>
+<body>
+    <div id="view">
+        <div id="imgs">
+            <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+        </div>
+        <div id="remote">
+            <div id="btn" onClick="play_stop()">▶</div>
+        </div>
+    </div>
+</body>
+</html>

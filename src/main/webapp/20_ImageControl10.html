@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20_ImageControl10.html</title>
+    <style type="text/css">
+        #view{position:relative; width:170px; height:255px; border:1px solid blue; left:100px;}
+        .imgs{position:absolute; top:0; left:0; opacity:0; transition:1.5s;}
+        .imgs:first-child{opacity:1;}
+    </style>
+    <script type="text/javascript">
+        //순서대로 fadein 하되, 마우스가 올라가면 멈춤, 나가면 다시 시작하도록 코드 작성
+        var imgNum = 1;
+        var timer;
+        function fadein(){
+            timer = window.setInterval(function(){
+                document.getElementById('imgs'+imgNum).style.opacity='0';
+                imgNum++;
+                if(imgNum>5) imgNum = 1;
+                document.getElementById('imgs'+imgNum).style.opacity='1';
+            },1500);
+        }
+        function stop(){
+            window.clearInterval(timer);
+        }
+    </script>    
+</head>
+<body onLoad="fadein();">
+    <div id="view" onMouseOut="fadein();" onMouseOver="stop();">
+        <div class="imgs" id="imgs1"><img src="images/1.jpg"></div>
+        <div class="imgs" id="imgs2"><img src="images/2.jpg"></div>
+        <div class="imgs" id="imgs3"><img src="images/3.jpg"></div>
+        <div class="imgs" id="imgs4"><img src="images/4.jpg"></div>
+        <div class="imgs" id="imgs5"><img src="images/5.jpg"></div>
+    </div> 
+</body>
+</html>

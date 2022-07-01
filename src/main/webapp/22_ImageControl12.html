@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>22_ImageControl12.html</title>
+    <style type="text/css">
+        .view{position:relative; width:600px; height:600px; margin:0 auto; border:1px dashed red; overflow:hidden;}
+        .bigimg{position:relative; width:600px; height:400px; color:white; background:silver; text-align:center; line-height:400px; font-size:130%; font-weight:bold; opacity:0.5;}
+        
+        .box1{position:relative; width:198px; height:198px; border:1px solid yellow; border-radius:50%; overflow:hidden; float:left;}
+        
+        .box2{position:absolute; top:0px; left:-600px; transition:1s;}
+    </style>
+    <script type="text/javascript">
+        function move1(num){
+            //document.getElementById("view_img"+num).style.webkitTransform="translateX(600px)";
+            document.getElementById("view_img"+num).style.left="0px";
+        }
+        function move2(num){
+            //document.getElementById("view_img"+num).style.webkitTransform="translateX(-600px)";
+            document.getElementById("view_img"+num).style.left="-600px";
+        }
+    </script>
+</head>
+<body>
+    <div class="view">
+        <div class="bigimg">이미지에 마우스를 올리면 큰 이미지를 볼 수 있습니다.</div>
+        <div class="box1" id="btn_img1" onMouseOver="move1(1)" onMouseOut="move2(1)">
+            <img src="images/prod1.jpg" width="198" height="198">
+        </div>
+        <div class="box1" id="btn_img2" onMouseOver="move1(2)" onMouseOut="move2(2)">
+            <img src="images/prod2.jpg" width="198" height="198">
+        </div>
+        <div class="box1" id="btn_img3" onMouseOver="move1(3)" onMouseOut="move2(3)">
+            <img src="images/prod3.jpg" width="198" height="198">
+        </div>
+        <div class="box2" id="view_img1"><img src="images/prod1.jpg" width="600" height="400"></div>
+        <div class="box2" id="view_img2"><img src="images/prod2.jpg" width="600" height="400"></div>
+        <div class="box2" id="view_img3"><img src="images/prod3.jpg" width="600" height="400"></div>
+    </div>
+</body>
+</html>
